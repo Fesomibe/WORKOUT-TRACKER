@@ -1,0 +1,26 @@
+<%- include('../partials/header') %>
+
+<h2>Enter a New Workout</h2>
+<!-- Workout Form -->
+<form action="/workouts" method="POST">
+    <!-- Other input fields for workout details -->
+    <input type="text" name="gooleId" value="<%= googleId %>" hidden>
+    <input type="text" name="name" placeholder="Workout Name" required>
+    <input type="text" name="description" placeholder="Workout Description" required>
+    <!-- Exercise Inputs -->
+    <h3>Exercises</h3>
+    <div id="exercise-container">
+      <div class="exercise">
+        <input type="text" name="exercises[]" placeholder="Exercise Name" required>
+        <input type="text" name="exercises[]" placeholder="Exercise Duration" required>
+        <input type="text" name="exercises[]" placeholder="Exercise Intensity" required>
+      </div>
+    </div>
+    <!-- Add Exercise Button -->
+    <button type="button" id="add-exercise-btn">Add Exercise</button>
+    <!-- Submit Button -->
+    <button type="submit">Create Workout</button>
+  </form>
+<p><%= errorMsg %></p>
+
+<%- include('../partials/footer') %>
