@@ -2,13 +2,6 @@ const mongoose = require('mongoose');
  const Schema = mongoose.Schema;
 
 
- // User Schema
- const userSchema = new Schema({
-  name: String,
-  googleId: String
-}, {
-  timestamps: true
-});
 // Exercise Schema
 const exerciseSchema = new Schema({
   name: String,
@@ -27,14 +20,14 @@ const workoutSchema = new Schema({
   timestamps: true
 });
 // Workout History Schema
-const workoutHistorySchema = new Schema({
-  googleId: { type: Schema.Types.ObjectId, ref: 'User' },
-  workoutId: { type: Schema.Types.ObjectId, ref: 'Workout' },
-  date: Date,
-  duration: Number
-},{
-  timestamps: true
-});
+// const workoutHistorySchema = new Schema({
+//   googleId: { type: Schema.Types.ObjectId, ref: 'User' },
+//   workoutId: { type: Schema.Types.ObjectId, ref: 'Workout' },
+//   date: Date,
+//   duration: Number
+// },{
+//   timestamps: true
+// });
 
 
 
