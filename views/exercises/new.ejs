@@ -1,0 +1,37 @@
+<%- include('../partials/header') %>
+
+
+    <form action="/exercises" method="POST">
+
+
+        <!-- Exercises -->
+        <h3>Exercises</h3>
+        <!-- You can use JavaScript to dynamically add more exercise input fields if needed -->
+        <div class="exercise">
+            <!-- Input fields for creating a new workout -->
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="description">Description:</label>
+            <input type="text" id="description" name="description" required>
+
+            <label for="targetArea">Target Area:</label>
+            <input type="text" id="targetArea" name="targetArea">
+
+            <label for="difficulty">Difficulty:</label>
+            <select id="difficulty" name="difficulty">
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+            </select>
+        </div>
+
+        <!-- Add Exercise Button (you can use JavaScript to add more exercise input fields) -->
+        <button type="submit" id="add-exercise-btn">Add Exercise</button>
+
+    </form>
+    <p>
+        <%= errorMsg %>
+    </p>
+
+    <%- include('../partials/footer') %>
