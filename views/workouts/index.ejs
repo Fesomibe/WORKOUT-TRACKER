@@ -1,4 +1,28 @@
 <%- include('../partials/header') %>
 
-
+<% if (workouts && workouts.length > 0) { %>
+    <h3>List of Workouts</h3>
+    <ul>
+      <% workouts.forEach(workout => { %>
+        <li>
+          <strong>Name:</strong> <%= workout.name %><br>
+          <strong>Description:</strong> <%= workout.description %><br>
+          <strong>User:</strong> <%= workout.user.username %><br>
+          <!-- You may loop through exercises if needed -->
+          <% if (workout.exercises && workout.exercises.length > 0) { %>
+            <strong>Exercises:</strong>
+            <ul>
+              <% workout.exercises.forEach(exercise => { %>
+                <li><%= exercise.name %></li>
+              <% }); %>
+            </ul>
+          <% } %>
+          <!-- Add any other workout details you want to display -->
+        </li>
+      <% }); %>
+    </ul>
+  <% } else { %>
+    <p>No workouts available.</p>
+  <% } %>
+  
 <%- include('../partials/footer') %>

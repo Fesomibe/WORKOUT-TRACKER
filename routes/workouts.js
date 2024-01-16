@@ -3,7 +3,7 @@ const router = express.Router();
 const workoutsCtrl = require('../controllers/workouts');
 
 
-// GET /workouts
+// GET /workouts/index
 router.get('/', workoutsCtrl.index);
 // GET /workouts/new
 router.get('/new', workoutsCtrl.new);

@@ -9,8 +9,8 @@ module.exports = {
 };
 
 async function index(req, res) {
-  const workouts = await Workout.find({});
-  res.render('workouts/index', { title: 'Workout Tracker', workouts });
+  const exercises = await Exercise.find({});
+  res.render('exercises/index', { title: 'Workout Tracker', exercises });
 }
 
 async function show(req, res) {
