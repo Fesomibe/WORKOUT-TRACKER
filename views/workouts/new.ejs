@@ -12,19 +12,31 @@
         
         <label for="description">Workout Description:</label>
         <input type="text" name="description" required>
+        <label for="Area">Target Area:</label>
+        <input type="text" name="Target Area" required>
 
         <!-- Exercises -->
         <h3>Exercises</h3>
         <!-- You can use JavaScript to dynamically add more exercise input fields if needed -->
-        <div class="exercise">
-            <label for="exerciseName">Exercise Name:</label>
-            <input type="text" name="exercises[]" required>
-
-            <label for="exerciseDuration">Exercise Duration:</label>
-            <input type="text" name="exercises[]" required>
-
-            <label for="exerciseIntensity">Exercise Intensity:</label>
-            <input type="text" name="exercises[]" required>
+        <div 
+        class="exercise">
+        <form action="/workouts" method="POST">
+          <!-- Input fields for creating a new workout -->
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required>
+        
+          <label for="description">Description:</label>
+          <input type="text" id="description" name="description" required>
+        
+          <label for="targetArea">Target Area:</label>
+          <input type="text" id="targetArea" name="targetArea">
+        
+          <label for="difficulty">Difficulty:</label>
+          <select id="difficulty" name="difficulty">
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+          </select>
         </div>
 
         <!-- Add Exercise Button (you can use JavaScript to add more exercise input fields) -->
