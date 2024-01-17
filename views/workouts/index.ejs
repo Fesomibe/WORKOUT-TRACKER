@@ -26,10 +26,7 @@
         </div>
         
         <!-- Form with hidden input and submit button -->
-        <form action="/workouts/<%= workout._id %>" method="POST">
-          <input type="hidden" name="_method" value="PUT">
-          <button type="submit">Detail</button>
-        </form>
+          <a href="/workouts/<%= workout._id %>">Detail</a>
       </li>
     <% }); %>
   </ul>

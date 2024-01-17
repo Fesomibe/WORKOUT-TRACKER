@@ -20,6 +20,7 @@ async function show(req, res) {
 function newExercise(req, res) {
   // We'll want to be able to render an  
   // errorMsg if the create action fails
+  // const exercises = await Exercise.find({}).sort('name');
   res.render('exercises/new', { title: 'Add Exercise', errorMsg: '' });
 }
 
@@ -37,3 +38,4 @@ async function create(req, res) {
     res.render('exercises/new', { title: 'Add Exercise', errorMsg: err.message });
   }
 }
+

@@ -1,11 +1,12 @@
 const Workout = require('../models/workout');
-// const Performer = require('../models/performer');
+const Exercise = require('../models/exercise');
 
 module.exports = {
   index,
   show,
   new: newWorkout,
-  create
+  create,
+  addExercise
 };
 
 async function index(req, res) {
@@ -14,8 +15,9 @@ async function index(req, res) {
 }
 
 async function show(req, res) {
-  const workout = await Workout.findById(req.params.id);
-  res.render('workouts/show', { title: workout.name, workout })
+  const workout = await Workout.findById(req.params.id).populate('exercises').exec();
+  const exercises = await Exercise.find({});
+  res.render('workouts/show', { title: workout.name, workout, exercises })
 }
 
 function newWorkout(req, res) {
@@ -35,5 +37,17 @@ async function create(req, res) {
     // Typically some sort of validation error
     console.log(err);
     res.render('workouts/new', { errorMsg: err.message });
+  }
+}
+
+async function addExercise(req, res) {
+  try {
+    const workout = await Workout.findById(req.params.id);
+    workout.exercises.push(req.body.exercises);
+    await workout.save();
+    res.redirect(`/workouts/${req.params.id}`);
+  } catch (err) {
+    console.error(err);
+    res.redirect(`/workouts/${req.params.id}`);
   }
 }

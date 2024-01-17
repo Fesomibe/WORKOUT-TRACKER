@@ -11,5 +11,8 @@ router.get('/new', workoutsCtrl.new);
 router.get('/:id', workoutsCtrl.show);
 // POST /workouts
 router.post('/', workoutsCtrl.create);
+// POST /workouts/:id/exercises
+router.post('/:id/exercises', workoutsCtrl.addExercise);
+
 	
 module.exports = router;

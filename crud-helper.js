@@ -24,7 +24,7 @@ require('./config/database');
 
 // Require the app's Mongoose models
 const Workout = require('./models/workout');
-const Performer = require('./models/performer');
+const Exercise = require('./models/exercise');
 
 // Example CRUD
 
