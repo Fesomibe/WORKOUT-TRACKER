@@ -12,7 +12,6 @@
       `<option value="${e._id}">${e.name}</option>`
     ).join('') %>
   </select>
-  
 
   <button type="submit">Add Exercise</button>
 </form>
@@ -26,6 +25,11 @@
         <strong>Name:</strong> <%= exercise.name %><br>
         <strong>Description:</strong> <%= exercise.description %><br>
         <!-- Display any other exercise details -->
+        
+        <!-- Delete button for each exercise -->
+        <form action="/workouts/<%= workout._id %>/exercises/<%= exercise._id %>?_method=DELETE" method="POST">
+            <button type="submit">X</button>
+          </form>
       </li>
     <% }); %>
   </ul>

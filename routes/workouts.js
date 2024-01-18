@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const workoutsCtrl = require('../controllers/workouts');
+const ensureLoggedIn = require('../config/ensureLoggedIn');
 
 
 // GET /workouts/index
@@ -13,6 +14,9 @@ router.get('/:id', workoutsCtrl.show);
 router.post('/', workoutsCtrl.create);
 // POST /workouts/:id/exercises
 router.post('/:id/exercises', workoutsCtrl.addExercise);
+// router.post('/', ensureLoggedIn, workoutsCtrl.create);
+router.delete('/:workoutId/exercises/:id', ensureLoggedIn, workoutsCtrl.delete);
+
 
 	
 module.exports = router;

@@ -6,7 +6,8 @@ module.exports = {
   show,
   new: newWorkout,
   create,
-  addExercise
+  addExercise,
+  delete: deleteExercise
 };
 
 async function index(req, res) {
@@ -50,4 +51,19 @@ async function addExercise(req, res) {
     console.error(err);
     res.redirect(`/workouts/${req.params.id}`);
   }
+}
+
+async function deleteExercise(req, res) {
+  console.log(req.params.id)
+  // Note the cool "dot" syntax to query on the property of a subdoc
+  const workout = await Workout.findById(req.params.workoutId);
+  // Rogue user!
+  console.log(workout);
+  if (!workout) return res.redirect('/workouts');
+  // Remove the review using the remove method available on Mongoose arrays
+  workout.exercises.remove(req.params.id);
+  // Save the updated movie doc
+  await workout.save();
+  // Redirect back to the movie's show view
+  res.redirect(`/workouts/${workout._id}`);
 }
