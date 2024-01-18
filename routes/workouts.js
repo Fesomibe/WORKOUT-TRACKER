@@ -7,14 +7,19 @@ const ensureLoggedIn = require('../config/ensureLoggedIn');
 // GET /workouts/index
 router.get('/', workoutsCtrl.index);
 // GET /workouts/new
+router.get('/new', ensureLoggedIn, workoutsCtrl.new);
 router.get('/new', workoutsCtrl.new);
 // GET /workouts/:id (show functionality) MUST be below new route
 router.get('/:id', workoutsCtrl.show);
 // POST /workouts
-router.post('/', workoutsCtrl.create);
+// router.post('/', workoutsCtrl.create);
+router.post('/', ensureLoggedIn, workoutsCtrl.create);
 // POST /workouts/:id/exercises
 router.post('/:id/exercises', workoutsCtrl.addExercise);
-// router.post('/', ensureLoggedIn, workoutsCtrl.create);
+// GET /workouts/:id/edit
+router.get('/:id/edit', workoutsCtrl.edit);
+// PUT /workouts/:id
+router.put('/:id', ensureLoggedIn, workoutsCtrl.update);
 router.delete('/:workoutId/exercises/:id', ensureLoggedIn, workoutsCtrl.delete);
 
 

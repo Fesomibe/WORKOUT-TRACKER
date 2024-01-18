@@ -1,0 +1,15 @@
+<%- include('../partials/header') %>
+
+<form action="/workouts/<%= workout._id %>?_method=PUT" method="POST">
+  <!-- Your form fields go here, e.g., for workout name and description -->
+  <label for="name">Workout Name:</label>
+  <input type="text" name="name" value="<%= workout.name %>" required>
+  <br>
+  <label for="description">Workout Description:</label>
+  <textarea name="description" required><%= workout.description %></textarea>
+  <br>
+
+  <button type="submit">Update Workout</button>
+</form>
+
+<%- include('../partials/footer') %>

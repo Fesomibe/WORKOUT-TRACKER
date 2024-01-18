@@ -7,7 +7,9 @@ module.exports = {
   new: newWorkout,
   create,
   addExercise,
-  delete: deleteExercise
+  delete: deleteExercise,
+  edit,
+  update
 };
 
 async function index(req, res) {
@@ -66,4 +68,21 @@ async function deleteExercise(req, res) {
   await workout.save();
   // Redirect back to the movie's show view
   res.redirect(`/workouts/${workout._id}`);
+}
+
+async function edit(req, res) {
+  const workout = await Workout.findById(req.params.id);
+  const exercises = await Exercise.find(); // You may want to retrieve exercises here
+
+  res.render('workouts/edit', { title: 'Edit Workout', workout, exercises });
+}
+
+async function update(req, res) {
+  try {
+    const workout = await Workout.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    res.redirect(`/workouts/${workout._id}`);
+  } catch (err) {
+    console.error(err);
+    res.redirect(`/workouts/${req.params.id}/edit`);
+  }
 }

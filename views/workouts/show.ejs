@@ -30,6 +30,8 @@
         <form action="/workouts/<%= workout._id %>/exercises/<%= exercise._id %>?_method=DELETE" method="POST">
             <button type="submit">X</button>
           </form>
+          <a href="/workouts/<%= workout._id %>/edit">Edit</a>
+
       </li>
     <% }); %>
   </ul>
