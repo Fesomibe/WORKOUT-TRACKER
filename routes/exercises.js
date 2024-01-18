@@ -7,7 +7,7 @@ const ensureLoggedIn = require('../config/ensureLoggedIn');
 // GET /workouts
 router.get('/', exercisesCtrl.index);
 // GET /workouts/new
-router.get('/new', exercisesCtrl.new);
+router.get('/new', ensureLoggedIn, exercisesCtrl.new);
 router.get('/:id', exercisesCtrl.show);
 router.post('/workouts/:id/exercises', ensureLoggedIn, exercisesCtrl.create);
 // POST /workouts
