@@ -1,18 +1,12 @@
-# workoutTracker
+# myWorkoutTracker 🏋️‍♀️💪
+Experience a clutter-free and organized workout experience with our user-friendly interface. Start your fitness journey today!
 
-> Application designed to...
+# Screenshot
 
-## SCREENSHOTS
+<img src="./imgs/Home page prior login - Imgur.png">
+<img src="./imgs/Home page after login - Imgur.png">
 
-list of workouts
-
-show campground
-
-## PLANNING
-
-[https://trello.com/](https://trello.com/b/zz65tlAx/workouttracker)
-
-## TECHNOLOGY USED
+# Technologies Used
 
 - JavaScript
 - EJS (EspressJS)
@@ -23,16 +17,10 @@ show campground
 - Nodemon
 - Git
 
-## GETTING STARTED
+# Getting Started
 
-Getting Started: Include a link to the deployed app and your Trello board with the project's planning.
+[Click to open webpage!](https://workout-tracker-fe-5cc5d45c392c.herokuapp.com/)
 
-## NEXT STEPS
+# Next Steps
 
-Next Steps: Planned future enhancements (icebox items).
-
-Future Tracking
-- Yurts
-
-
-## Thanks
+TBD..
