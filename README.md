@@ -6,6 +6,10 @@ Experience a clutter-free and organized workout experience with our user-friendl
 <img src="./imgs/Home page prior login - Imgur.png">
 <img src="./imgs/Home page after login - Imgur.png">
 
+## PLANNING
+
+[https://trello.com/](https://trello.com/b/zz65tlAx/workouttracker)
+
 # Technologies Used
 
 - JavaScript
