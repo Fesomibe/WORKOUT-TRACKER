@@ -15,7 +15,7 @@ async function index(req, res) {
 }
 
 async function show(req, res) {
-  
+
 }
 
 function newExercise(req, res) {
@@ -26,12 +26,12 @@ function newExercise(req, res) {
 }
 
 async function create(req, res) {
- // Attach the user to req.body
- req.body.user = req.user._id
+  // Attach the user to req.body
+  req.body.user = req.user._id
   try {
-    // Update this line because now we need the _id of the new movie
+    // Update this line because now we need the _id of the new workout
     const exercise = await Exercise.create(req.body);
-    // Redirect to the new movie's show functionality 
+    // Redirect to the new workout's show functionality 
     res.redirect(`/`);
   } catch (err) {
     // Typically some sort of validation error
@@ -43,14 +43,14 @@ async function create(req, res) {
 async function deleteExercise(req, res) {
   console.log(req.params.id)
   // Note the cool "dot" syntax to query on the property of a subdoc
-  const workout = await Workout.findOne({ 'exercises._id': req.params.id,  });
+  const workout = await Workout.findOne({ 'exercises._id': req.params.id, });
   // Rogue user!
   console.log(workout);
   if (!workout) return res.redirect('/workouts');
-  // Remove the review using the remove method available on Mongoose arrays
+  // Remove the exercise using the remove method available on Mongoose arrays
   workout.exercises.remove(req.params.id);
-  // Save the updated movie doc
+  // Save the updated workout doc
   await workout.save();
-  // Redirect back to the movie's show view
+  // Redirect back to the workout's show view
   res.redirect(`/workouts/${workout._id}`);
 }

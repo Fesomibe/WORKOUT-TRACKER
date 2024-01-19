@@ -1,20 +1,58 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+}
+
+/* Body styling */
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
 }
 
-a {
-  color: #00B7FF;
+/* Navigation bar styling */
+nav {
+  background-color: #2c3e50;
+  color: #ecf0f1;
+  padding: 15px;
+  text-align: right;
 }
 
-.login {
+nav a {
+  text-decoration: none;
+  color: #ecf0f1;
+  margin: 0 15px;
+}
+
+/* Main content styling */
+main {
+  padding: 20px;
+}
+
+/* Heading styling */
+h1 {
+  color: #3498db;
+  margin-bottom: 20px;
+}
+
+/* Copyright container styling */
+.copyright-container {
   display: flex;
-  justify-content: center;
   align-items: center;
-  height: 34px;
+  justify-content: center;
+  font-size: 14px;
+  color: #555;
+  margin-top: 20px;
 }
 
-.login img {
-  height: 30px;
+.copyright-container img {
+  width: 20px;
+  margin-right: 5px;
 }
 
+/* Hover effect on the copyright text */
+.copyright-container span:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}

@@ -1,22 +1,26 @@
 <%- include('../partials/header') %>
 
-<% if (exercises && exercises.length > 0) { %>
+  <% if (exercises && exercises.length> 0) { %>
     <h3>List of Exercises</h3>
     <ul>
-      <% exercises.forEach(exercise => { %>
+      <% exercises.forEach(exercise=> { %>
         <li>
-          <strong>Name:</strong> <%= exercise.name %><br>
-          <strong>Description:</strong> <%= exercise.description %><br>
-          <strong>Target Area:</strong> <%= exercise.targetArea %><br>
-          <strong>Difficulty:</strong> <%= exercise.difficulty %><br>
-          <!-- Add any other exercise details you want to display -->
-          <% if (exercise.image) { %>
-            <img src="<%= exercise.image %>" alt="Exercise Image" width="100">
-          <% } %>
+          <strong>Name:</strong>
+          <%= exercise.name %><br>
+            <strong>Description:</strong>
+            <%= exercise.description %><br>
+              <strong>Target Area:</strong>
+              <%= exercise.targetArea %><br>
+                <strong>Difficulty:</strong>
+                <%= exercise.difficulty %><br>
+                  <!-- Add any other exercise details you want to display -->
+                  <% if (exercise.image) { %>
+                    <img src="<%= exercise.image %>" alt="Exercise Image" width="100">
+                    <% } %>
         </li>
-      <% }); %>
+        <% }); %>
     </ul>
-  <% } else { %>
-    <p>No exercises available.</p>
-  <% } %>
-<%- include('../partials/footer') %>
+    <% } else { %>
+      <p>No exercises available.</p>
+      <% } %>
+        <%- include('../partials/footer') %>

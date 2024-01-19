@@ -1,42 +1,46 @@
 <%- include('../partials/header') %>
 
-<!-- Display workout details -->
-<p><%= workout.description %></p>
+  <!-- Display workout details -->
+  <p>
+    <%= workout.description %>
+  </p>
+  <a href="/workouts/<%= workout._id %>/edit">Edit Workout</a>
 
-<!-- Form for adding exercises -->
-<form action="/workouts/<%= workout._id %>/exercises" method="POST">
-  <label for="exerciseName">Exercise Name:</label>
-  <select name="exercises">
-    <!-- Emit an option for each performer -->
-    <%- exercises.map(e => 
-      `<option value="${e._id}">${e.name}</option>`
-    ).join('') %>
-  </select>
+  <!-- Form for adding exercises -->
+  <form action="/workouts/<%= workout._id %>/exercises" method="POST">
+    <label for="exerciseName">Exercise Name:</label>
+    <select name="exercises">
+      <!-- Emit an option for each exercise -->
+      <%- exercises.map(e=>
+        `<option value="${e._id}">${e.name}</option>`
+        ).join('') %>
+    </select>
 
-  <button type="submit">Add Exercise</button>
-</form>
+    <button type="submit">Add Exercise</button>
+  </form>
 
-<!-- Display existing exercises -->
-<% if (workout.exercises && workout.exercises.length > 0) { %>
-  <h2>Exercises:</h2>
-  <ul>
-    <% workout.exercises.forEach(exercise => { %>
-      <li>
-        <strong>Name:</strong> <%= exercise.name %><br>
-        <strong>Description:</strong> <%= exercise.description %><br>
-        <!-- Display any other exercise details -->
-        
-        <!-- Delete button for each exercise -->
-        <form action="/workouts/<%= workout._id %>/exercises/<%= exercise._id %>?_method=DELETE" method="POST">
-            <button type="submit">X</button>
-          </form>
-          <a href="/workouts/<%= workout._id %>/edit">Edit</a>
+  <!-- Display existing exercises -->
+  <% if (workout.exercises && workout.exercises.length> 0) { %>
+    <h2>Exercises:</h2>
+    <ul>
+      <% workout.exercises.forEach(exercise=> { %>
+        <li>
+          <strong>Name:</strong>
+          <%= exercise.name %><br>
+            <strong>Description:</strong>
+            <%= exercise.description %><br>
+              <!-- Display any other exercise details -->
 
-      </li>
-    <% }); %>
-  </ul>
-<% } else { %>
-  <p>No exercises added yet.</p>
-<% } %>
+              <!-- Delete button for each exercise -->
+              <form action="/workouts/<%= workout._id %>/exercises/<%= exercise._id %>?_method=DELETE" method="POST">
+                <button type="submit">X</button>
+              </form>
 
-<%- include('../partials/footer') %>
+        </li>
+        <% }); %>
+    </ul>
+    <% } else { %>
+      <p>No exercises added yet.</p>
+      <% } %>
+
+        <%- include('../partials/footer') %>

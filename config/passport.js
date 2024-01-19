@@ -12,7 +12,7 @@ passport.use(new GoogleStrategy(
   // The verify callback function...
   // Marking a function as an async function allows us
   // to consume promises using the await keyword
-  async function(accessToken, refreshToken, profile, cb) {
+  async function (accessToken, refreshToken, profile, cb) {
     // When using async/await  we use a
     // try/catch block to handle an error
     try {
@@ -34,11 +34,11 @@ passport.use(new GoogleStrategy(
   }
 ));
 
-passport.serializeUser(function(user, cb) {
+passport.serializeUser(function (user, cb) {
   cb(null, user._id);
 });
 
-passport.deserializeUser(async function(userId, cb) {
+passport.deserializeUser(async function (userId, cb) {
   // It's nice to be able to use await in-line!
   cb(null, await User.findById(userId));
 });

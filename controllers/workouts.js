@@ -30,11 +30,11 @@ function newWorkout(req, res) {
 }
 
 async function create(req, res) {
- req.body.user = req.user._id
+  req.body.user = req.user._id
   try {
-    // Update this line because now we need the _id of the new movie
+    // Update this line because now we need the _id of the new workout
     const workout = await Workout.create(req.body);
-    // Redirect to the new movie's show functionality 
+    // Redirect to the new workout's show functionality 
     res.redirect(`/workouts/${workout._id}`);
   } catch (err) {
     // Typically some sort of validation error
@@ -62,17 +62,17 @@ async function deleteExercise(req, res) {
   // Rogue user!
   console.log(workout);
   if (!workout) return res.redirect('/workouts');
-  // Remove the review using the remove method available on Mongoose arrays
+  // Remove the exercise using the remove method available on Mongoose arrays
   workout.exercises.remove(req.params.id);
   // Save the updated movie doc
   await workout.save();
-  // Redirect back to the movie's show view
+  // Redirect back to the workout's show view
   res.redirect(`/workouts/${workout._id}`);
 }
 
 async function edit(req, res) {
   const workout = await Workout.findById(req.params.id);
-  const exercises = await Exercise.find(); // You may want to retrieve exercises here
+  const exercises = await Exercise.find();
 
   res.render('workouts/edit', { title: 'Edit Workout', workout, exercises });
 }
